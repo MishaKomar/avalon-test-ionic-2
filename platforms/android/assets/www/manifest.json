@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "avalon-test-ionic-2",
+  "short_name": "AvalonTest",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
