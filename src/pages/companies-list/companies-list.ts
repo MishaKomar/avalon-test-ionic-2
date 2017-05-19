@@ -68,6 +68,7 @@ export class CompaniesListPage {
 	            	this.companiesService.addCompany(newComp).subscribe(
 		            	data => {
 	            			this.companiesService.companies.push(data.success);
+	            			this.companies = this.companiesService.companies;
 		            	}, error => {
 		            		let alert = this.alertCtrl.create({
 			                  title: "Can't add new company",
