@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar color="avalon">
+		<ion-title>
+			Company List
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="companies-list" padding>
+	<ion-item padding-right>
+		<ion-icon name="ios-search-outline" item-left></ion-icon>
+		<ion-input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="setFilteredItems($event)"></ion-input>
+	</ion-item>
+	<ng-container *ngFor="let company of companiesService.companies">
+		<ion-card *ngIf="company.companyName" (click)="itemTapped($event, company)">
+    		<div class="card-title" text-nowrap>{{company.companyName}}</div>
+    		<div class="card-subtitle">{{company.companyGoods.length}} goods</div>
+  		</ion-card>
+  	</ng-container>
+  	<ion-fab right bottom (click)="addNewCompany()">
+	    <button ion-fab color="avalon">
+	    	<ion-icon name="add"></ion-icon>
+	    </button>
+	 </ion-fab>
+</ion-content>

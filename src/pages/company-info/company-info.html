@@ -1,0 +1,36 @@
+<ion-header>
+	<ion-navbar ion-navbar color="avalon">
+		<ion-title>
+			Company Info
+		</ion-title>
+		<ion-buttons end>
+	    <button ion-button icon-only (click)="presentActionSheet(company)">
+		    <ion-icon name="md-more"></ion-icon>
+	    </button>
+	    </ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="company-info-content">
+	<div class="title">
+		{{company.companyName}}
+	</div>
+  	<ion-list padding>
+	  	<ion-item-sliding *ngFor="let goods of company.companyGoods">
+	      <ion-item>
+	        <h2>{{goods}}</h2>
+	      </ion-item>
+	      <ion-item-options side="right">
+	        <button ion-button color="danger" (click)="deleteGoodsItem(goods)">
+	          <ion-icon name="delete"></ion-icon>
+	          Delete
+	        </button>
+	      </ion-item-options>
+	    </ion-item-sliding>
+	</ion-list>
+	<ion-fab right bottom (click)="showAddNewGoodsAlert()">
+	    <button ion-fab color="avalon">
+	    	<ion-icon name="add"></ion-icon>
+	    </button>
+	 </ion-fab>
+</ion-content>
