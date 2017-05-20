@@ -37,7 +37,8 @@ export class CompaniesListPage {
   	itemTapped(event, company) {
 		this.navCtrl.push(CompanyInfoPage, {
 			company: company,
-			companiesService: this.companiesService
+			companiesService: this.companiesService,
+			chaceCompanies: this.companies
 		});
 	}
 

@@ -12,6 +12,7 @@ export class CompanyInfoPage {
 
 	company: Company;	
 	companiesService: any;
+  chaceCompanies: any; 
 
 	constructor(public navCtrl: NavController, 
       				private navParams: NavParams, 
@@ -20,13 +21,14 @@ export class CompanyInfoPage {
       				) {
 		this.company = navParams.get('company');
 		this.companiesService = navParams.get('companiesService');
+    this.chaceCompanies = navParams.get('chaceCompanies');
 	}
 
-	private deleteCompany(company: Company){
-  	if(this.companiesService.companies.length && company){
-  		let index = this.companiesService.companies.indexOf(company);
+	private deleteCompany(companies: any, company: Company){
+  	if(companies && companies.length && company){
+  		let index = companies.indexOf(company);
   		if (index > -1)
-  			this.companiesService.companies.splice(index, 1);
+  			companies.splice(index, 1);
   	}
 	}
   private deleteGoods(goods: string){
@@ -116,7 +118,8 @@ export class CompanyInfoPage {
             console.log('Agree clicked');
             this.companiesService.deleteCompany(company.companyName).subscribe(
             	data => {
-            		this.deleteCompany(company);
+                this.deleteCompany(this.companiesService.companies, company);
+            		this.deleteCompany(this.chaceCompanies, company);
                 this.navCtrl.pop();
             	}, error => {
             		console.log("Can't delete company, ", error);
