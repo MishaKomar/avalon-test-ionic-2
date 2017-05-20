@@ -1,5 +1,5 @@
 The build for Android is here: 
-https://i.diawi.com/wEqCis
+https://i.diawi.com/5jWAUy
 
 
 To watch the app in the IonicView 
